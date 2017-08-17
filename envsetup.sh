@@ -320,6 +320,8 @@ function printconfig()
     _get_build_var_cached report_config
 }
 
+fixup_common_out_dir
+
 function set_stuff_for_environment()
 {
     set_lunch_paths
