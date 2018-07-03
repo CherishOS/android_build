@@ -2126,3 +2126,8 @@ addcompletions
 export ANDROID_BUILD_TOP=$(gettop)
 
 . $ANDROID_BUILD_TOP/vendor/cherish/build/envsetup.sh
+
+function repopick() {
+    T=$(gettop)
+    $T/vendor/cherish/build/tools/repopick.py $@
+}
