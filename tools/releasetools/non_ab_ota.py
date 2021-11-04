@@ -204,6 +204,44 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   # Dump fingerprints
   script.Print("Target: {}".format(target_info.fingerprint))
 
+  date = target_info.GetBuildProp("ro.cherish.build.date")
+  version = target_info.GetBuildProp("ro.cherish.version")
+
+  if target_info.GetBuildProp("ro.product.model") is not None:
+    model = target_info.GetBuildProp("ro.product.model")
+    script.Print("===================================================");
+    script.Print("---------------------------------------------------");
+    script.Print("     __                         __      __         ");
+    script.Print("   / ____| |             (_)   | |    / __ \       ");
+    script.Print("  | |    | |__   ___ _ __ _ ___| |__ | \  / |___   ");
+    script.Print("  | |    | '_ \ / _ \ '__| / __| '_ \| |  | / __|  ");
+    script.Print("  | |____| | | |  __/ |  | \__ \ | | | /__\ \__ \  ");
+    script.Print("   \_____|_| |_|\___|_|  |_|___/_| |_|\____/|___/  ");
+    script.Print("                                                   ");
+    script.Print("              CherishOS for %s"%(model)             );               
+    script.Print("                  by hungphan2001                  ");
+    script.Print("              Version: %s"%(version)                );
+    script.Print("              Compiled on: %s"%(date)               );
+    script.Print("---------------------------------------------------");
+    script.Print("===================================================");
+  else:
+    name = target_info.GetBuildProp("ro.product.name")
+    script.Print("===================================================");
+    script.Print("---------------------------------------------------");
+    script.Print("     __                         __      __         ");
+    script.Print("   / ____| |             (_)   | |    / __ \       ");
+    script.Print("  | |    | |__   ___ _ __ _ ___| |__ | \  / |___   ");
+    script.Print("  | |    | '_ \ / _ \ '__| / __| '_ \| |  | / __|  ");
+    script.Print("  | |____| | | |  __/ |  | \__ \ | | | /__\ \__ \  ");
+    script.Print("   \_____|_| |_|\___|_|  |_|___/_| |_|\____/|___/  ");
+    script.Print("                                                   ");
+    script.Print("              CherishOS for %s"%(name)              );               
+    script.Print("                  by hungphan2001                  ");
+    script.Print("              Version: %s"%(version)                );
+    script.Print("              Compiled on: %s"%(date)               );
+    script.Print("---------------------------------------------------");
+    script.Print("===================================================");
+
   script.AppendExtra("ifelse(is_mounted(\"/system\"), unmount(\"/system\"));")
   device_specific.FullOTA_InstallBegin()
 
