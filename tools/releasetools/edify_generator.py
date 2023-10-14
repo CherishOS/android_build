@@ -262,6 +262,28 @@ class EdifyGenerator(object):
     """Log a message to the screen (if the logs are visible)."""
     self.script.append('ui_print("%s");' % (message,))
 
+  def PrintCherishBanner(self, android_version, cherish_version, build_id, build_date, security_patch, device):
+    self.Print("===================================================");
+    self.Print("---------------------------------------------------");
+    self.Print("     __                         __      __         ");
+    self.Print("   / ____| |             (_)   | |    / __ \       ");
+    self.Print("  | |    | |__   ___ _ __ _ ___| |__ | \  / |___   ");
+    self.Print("  | |    | '_ \ / _ \ '__| / __| '_ \| |  | / __|  ");
+    self.Print("  | |____| | | |  __/ |  | \__ \ | | | /__\ \__ \  ");
+    self.Print("   \_____|_| |_|\___|_|  |_|___/_| |_|\____/|___/  ");
+    self.Print("                                                   ");
+    self.Print("                     CherishOS                     ");
+    self.Print("                  by hungphan2001                  ");
+    self.Print("---------------------------------------------------");
+    self.Print("===================================================");
+    self.Print(" Android version: %s"%(android_version));
+    self.Print(" Cherish version: %s"%(cherish_version));
+    self.Print(" Build id         : %s"%(build_id));
+    self.Print(" Build date       : %s"%(build_date));
+    self.Print(" Security patch   : %s"%(security_patch));
+    self.Print(" Device           : %s"%(device));
+    self.Print("=================================================");
+
   def TunePartition(self, partition, *options):
     fstab = self.fstab
     if fstab:
