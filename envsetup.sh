@@ -483,7 +483,7 @@ function _lunch_meat()
     set_stuff_for_environment
     [[ -n "${ANDROID_QUIET_BUILD:-}" ]] || printconfig
 
-    if [[ -z "${ANDROID_QUIET_BUILD}" ]]; then
+    if [[ -z "${ANDROID_QUIET_BUILD}" && -z "${CHERISH_BUILD}" ]]; then
         local spam_for_lunch=$(gettop)/build/make/tools/envsetup/spam_for_lunch
         if [[ -x $spam_for_lunch ]]; then
             $spam_for_lunch
@@ -1130,7 +1130,7 @@ function vosupload() {
     target_device="$(get_build_var TARGET_DEVICE)"
     product_out="out/target/product/$target_device/"
     source_file="$product_out/${filename}.zip"
-    destination="${sf_username}@frs.sourceforge.net:/home/frs/project/voltage-os/$target_device/"
+    destination="${sf_username}@frs.sourceforge.net:/home/frs/project/cherish-os/$target_device/"
     rsync -e ssh "$source_file" "$destination"
 }
 
